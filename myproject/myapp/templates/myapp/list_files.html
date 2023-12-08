@@ -1,0 +1,67 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}File List{% endblock %}
+
+{% block content %}
+    <h2>My Uploaded Files</h2>
+    <ul>
+        {% for file in uploaded_files %}
+            <li>{{ file.file.name }}</li>
+        {% empty %}
+            <li>No files uploaded.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Files Uploaded by Others</h2>
+    <ul>
+        {% for file in other_users_files %}
+            <li>{{ file.file.name }} (uploaded by {{ file.uploaded_by.username }})</li>
+        {% empty %}
+            <li>No files uploaded by others.</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>My Uploaded Files</h2>
+    <ul>
+        {% for file in uploaded_files %}
+            <li>{{ file.file.name }}</li>
+        {% empty %}
+            <li>No files uploaded.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Files Uploaded by Others</h2>
+    <ul>
+        {% for file in other_users_files %}
+            <li>{{ file.file.name }} (uploaded by {{ file.uploaded_by.username }})</li>
+        {% empty %}
+            <li>No files uploaded by others.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+-->

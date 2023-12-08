@@ -1,0 +1,53 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Search Users{% endblock %}
+
+{% block content %}
+    <h1>User Search</h1>
+    <form method="get">
+        {{ form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Results</h2>
+    <ul>
+        {% for user in results %}
+            <li>
+                Username: {{ user.username }}<br>
+                First Name: {{ user.first_name }}<br>
+                Last Name: {{ user.last_name }}
+            </li>
+        {% empty %}
+            <li>No users found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Users</title>
+</head>
+<body>
+    <h1>User Search</h1>
+    <form method="get">
+        {{ form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Results</h2>
+    <ul>
+        {% for user in results %}
+            <li>
+                Username: {{ user.username }}<br>
+                First Name: {{ user.first_name }}<br>
+                Last Name: {{ user.last_name }}
+            </li>
+        {% empty %}
+            <li>No users found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+-->
